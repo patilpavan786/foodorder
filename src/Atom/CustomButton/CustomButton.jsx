@@ -3,8 +3,8 @@ import React from 'react'
 function CustomButton(props) {
   return (
     <div>
-  <button onClick={props.onClick} className={props.className}
-  >{props.text}</button>
+  <button onClick={props.onClick} className={props.className} disabled={props.disabled}
+  >{props.text}</button >
     </div>
   )
 }

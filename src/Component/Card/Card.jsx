@@ -146,8 +146,8 @@ orderdetails.length===0 ) return;
         <h3 onClick={placeyourorder}>place your order</h3>
       </div> : <> </>}
 
-{show7 ?<>  <h4>thanks for order :-</h4>
-    <h4>{`your order status is :- ${userData[0].status}`}</h4></> : <></>}
+{show7 ?<div className={style.innercontainer2}>  <h4>thanks for order :-</h4>
+    <h4>{`your order status is :- ${userData[0].status}`}</h4></div> : <></>}
 
       <div className={style.innercontainer3}>
         {show ? (
@@ -160,7 +160,7 @@ orderdetails.length===0 ) return;
             />
             <CustomButton
               onClick={knowyourstatus}
-              text="Submite"
+              text="Submit"
               className={style.btn}
             />
           </div>
@@ -231,7 +231,7 @@ orderdetails.length===0 ) return;
             />
             <CustomButton
               onClick={handlesubmiteform}
-              text="Submite"
+              text="Submit"
               className={style.btn}
             />
           </div>
