@@ -13,18 +13,23 @@ function Home() {
 useEffect(()=>{
   let localData= JSON.parse(localStorage.getItem("userlist"))||[]
   setData(localData)
-},[data])
+},[])
 
 function handleOrder(x){
-  if(data.id===x){
-    setShow1(!show)
-    data.status("ready")
+  if(x.status==="pending"){
+    setShow1(!show1)
+    x.status= "ready"
+     setData([...data])
+     localStorage.setItem("userlist",JSON.stringify(data))
+  }else{
+    setShow1(!show1)
+    x.status= "pending"
     setData([...data])
-    localStorage.setItem(JSON.stringify([...data]))
-    
+    localStorage.setItem("userlist",JSON.stringify(data))
   }
-
 }
+
+
   return (
     <div>
  <div className={style.header}>
@@ -32,12 +37,12 @@ function handleOrder(x){
   <div key={x.id} className={style.orders}>
 
 <h2>{x.id}</h2>
-<h2>{x.status}</h2>
+<h2 >{x.status}</h2>
 <h2>{x.orderdetails}</h2>
 <h2>{x.pickLocation}</h2>
 <h2>{x.dropLocation}</h2>
 
-<CustomButton text={show1 ? 'Ready' : "pending"}  onClick={()=>handleOrder(x.id)} />
+<CustomButton text={show1 ? 'Ready' : "pending"}  onClick={()=>handleOrder(x)} />
 
   </div>
 )})}
